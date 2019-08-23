@@ -525,3 +525,546 @@ Stack Trace:
 #3 D:\xampp\htdocs\hopevillage\lib\Cake\Core\App.php(943): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2019-08-21 01:47:29 Error: [Error] Class 'Cake\Core\Configure' not found
+Request URL: /hopevillage/
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(971): include()
+#1 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(933): View->_evaluate('C:\\xampp2\\htdoc...', Array)
+#2 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(473): View->_render('C:\\xampp2\\htdoc...')
+#3 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(968): View->render('home', NULL)
+#4 C:\xampp2\htdocs\hopevillage\app\Controller\PagesController.php(72): Controller->render('home')
+#5 [internal function]: PagesController->display('home')
+#6 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(499): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#7 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#9 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2019-08-21 14:43:00 Error: [Error] Class 'Cake\Core\Configure' not found
+Request URL: /hopevillage/
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(971): include()
+#1 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(933): View->_evaluate('C:\\xampp2\\htdoc...', Array)
+#2 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(473): View->_render('C:\\xampp2\\htdoc...')
+#3 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(968): View->render('home', NULL)
+#4 C:\xampp2\htdocs\hopevillage\app\Controller\PagesController.php(72): Controller->render('home')
+#5 [internal function]: PagesController->display('home')
+#6 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(499): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#7 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#9 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2019-08-21 14:44:46 Error: [Error] Class 'Cake\Core\Configure' not found
+Request URL: /hopevillage/
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(971): include()
+#1 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(933): View->_evaluate('C:\\xampp2\\htdoc...', Array)
+#2 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(473): View->_render('C:\\xampp2\\htdoc...')
+#3 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(968): View->render('home', NULL)
+#4 C:\xampp2\htdocs\hopevillage\app\Controller\PagesController.php(72): Controller->render('home')
+#5 [internal function]: PagesController->display('home')
+#6 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(499): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#7 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#9 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2019-08-21 14:45:23 Error: [Error] Class 'Cake\Core\Configure' not found
+Request URL: /hopevillage/
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(971): include()
+#1 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(933): View->_evaluate('C:\\xampp2\\htdoc...', Array)
+#2 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(473): View->_render('C:\\xampp2\\htdoc...')
+#3 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(968): View->render('home', NULL)
+#4 C:\xampp2\htdocs\hopevillage\app\Controller\PagesController.php(72): Controller->render('home')
+#5 [internal function]: PagesController->display('home')
+#6 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(499): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#7 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#9 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2019-08-21 14:46:02 Error: [Error] Class 'Cake\Core\Configure' not found
+Request URL: /hopevillage/
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(971): include()
+#1 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(933): View->_evaluate('C:\\xampp2\\htdoc...', Array)
+#2 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(473): View->_render('C:\\xampp2\\htdoc...')
+#3 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(968): View->render('home', NULL)
+#4 C:\xampp2\htdocs\hopevillage\app\Controller\PagesController.php(72): Controller->render('home')
+#5 [internal function]: PagesController->display('home')
+#6 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(499): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#7 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#9 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2019-08-21 14:47:40 Error: [Error] Class 'Cake\Core\Configure' not found
+Request URL: /hopevillage/
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(971): include()
+#1 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(933): View->_evaluate('C:\\xampp2\\htdoc...', Array)
+#2 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(473): View->_render('C:\\xampp2\\htdoc...')
+#3 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(968): View->render('home', NULL)
+#4 C:\xampp2\htdocs\hopevillage\app\Controller\PagesController.php(72): Controller->render('home')
+#5 [internal function]: PagesController->display('home')
+#6 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(499): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#7 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#9 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2019-08-21 14:47:41 Error: [Error] Class 'Cake\Core\Configure' not found
+Request URL: /hopevillage/
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(971): include()
+#1 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(933): View->_evaluate('C:\\xampp2\\htdoc...', Array)
+#2 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(473): View->_render('C:\\xampp2\\htdoc...')
+#3 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(968): View->render('home', NULL)
+#4 C:\xampp2\htdocs\hopevillage\app\Controller\PagesController.php(72): Controller->render('home')
+#5 [internal function]: PagesController->display('home')
+#6 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(499): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#7 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#9 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2019-08-21 14:49:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 14:54:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 14:57:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 14:58:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 14:58:31 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 15:05:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 15:48:34 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 15:48:46 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 15:49:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 15:50:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:00:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:00:49 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:00:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:00:51 Error: [ParseError] syntax error, unexpected '<', expecting end of file
+Request URL: /hopevillage/
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(933): View->_evaluate('C:\\xampp2\\htdoc...', Array)
+#1 C:\xampp2\htdocs\hopevillage\lib\Cake\View\View.php(473): View->_render('C:\\xampp2\\htdoc...')
+#2 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(968): View->render('home', NULL)
+#3 C:\xampp2\htdocs\hopevillage\app\Controller\PagesController.php(72): Controller->render('home')
+#4 [internal function]: PagesController->display('home')
+#5 C:\xampp2\htdocs\hopevillage\lib\Cake\Controller\Controller.php(499): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp2\htdocs\hopevillage\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest))
+#8 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2019-08-21 16:00:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:01:09 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:02:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:02:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:04:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:05:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:06:25 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:09:32 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:09:34 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:10:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/img/hero-bg.jpg
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:10:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:10:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:10:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:10:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:10:45 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:11:10 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:12:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:12:02 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:13:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:13:32 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:13:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:13:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:14:02 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:14:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:14:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:14:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:21:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:21:49 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:22:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:22:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:22:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:22:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:23:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:23:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2019-08-21 16:23:16 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /hopevillage/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp2\htdocs\hopevillage\app\webroot\index.php(117): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

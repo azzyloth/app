@@ -1,0 +1,35 @@
+h1 {
+    size: 40px;
+}
+#hero {
+    width: 100%;
+    min-height: 640px;
+    padding: 40px;
+    color: #fff;
+    background-image: url("../img/hero-bg.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+#hero h1{
+    font-size: 46px;
+
+}
+#hero h2{
+    font-size:40px;
+
+}
+#hero h3{
+    font-size: 18px;
+
+}
+.messageBox {
+    padding: 50px;
+    width: 100%;
+    max-width: 700px;
+}
+#chooseButton {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 600;
+    padding: 10px 40px;
+}
