@@ -33,8 +33,7 @@
   </header>
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        
+      <div class="col-md-12">        
           <div id='calendar' style='width: 100%; margin: 0 auto;'></div>
 
           <button>Proceed to Next Step</button>

@@ -30,12 +30,18 @@ App::uses('AppController', 'Controller');
  */
 class PagesController extends AppController {
 
+	public function beforeFilter() {
+		parent::beforeFilter();
+ 
+		$this->Auth->allow();
+	}
+
 /**
  * This controller does not use a model
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('Donation');
 
 /**
  * Displays a view
@@ -47,6 +53,9 @@ class PagesController extends AppController {
  */
 	public function display() {
 		$path = func_get_args();
+
+		// grab all donations
+		$this->set('donations', $this->Donation->find('all'));	
 
 		$count = count($path);
 		if (!$count) {

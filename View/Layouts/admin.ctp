@@ -47,7 +47,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   	<?= $this->Html->css('fullcalendar.min.css') ?>
 </head>
 <body>
-	<div id="main">
+	<div id="admin">
 		<div id="header">
 			<div class="container logo-container">
 			<?php echo $this->Html->link(

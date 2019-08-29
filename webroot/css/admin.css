@@ -1,0 +1,25 @@
+.navbar-header {
+    width: 100%;
+}
+.pull-right {
+    float:right;
+}
+
+.actions {
+    width: 30%;
+    float:left;
+    background: #111;
+}
+
+.main-view {
+    width: 70%;
+    float:left;
+    background: #f1f1f1;
+}
+.clearfix {
+    clear:both;
+}
+#footer .content{
+    padding: 50px 0;
+    text-align: center;
+}

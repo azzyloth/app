@@ -100,10 +100,6 @@ h3, h4 {
     margin-top: 10px;
 }
 
-.row {
-    max-width: 1000px;
-}
-
 .alert {
     background-color: #fff9e1;
     font-size: 12px;
@@ -278,6 +274,37 @@ nav > div a.nav-item.nav-link:focus
     height: auto!important;
     overflow-y: auto;
 }
+
+form#donations div { margin-bottom: 10px; text-align: left; }
+#donations p { line-height: 1.2em; }
+
+#donations .btn-info {  
+   background: #01A0E0 !important;
+   border: 1px solid #01A0E0;
+}
+.bold { font-weight: bold; }
+
+
+.fc-day-grid-event {
+    margin: 1px 2px 0;
+    padding: 6px 10px !important;
+    color: white !important;
+    //background: #01A0E0 !important;
+    //border: 1px solid #01A0E0 !important;
+    font-size: 14px !important;
+}
+
+#donations .addDonation {
+    font-size: 15px;
+    line-height: 1.2em;
+    padding: 10px;
+}
+
+#donations hr {
+    margin-bottom: 10px;
+}
+
+#donations #loader { display: none; }
 
 @media (min-width: 768px) {
     .columns {
