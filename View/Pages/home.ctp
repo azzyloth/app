@@ -20,7 +20,7 @@
 
 <div class="row" style="margin-top: 40px;">
   <div class="col-md-8">
-    <h5>Please Select Your Day(s) of Hope</h5>
+    <h5 style="margin:0 0 25px 0;">Please Select Your Day(s) of Hope</h5>
     <div id='calendar' style='width: 100%; margin: 0 auto;'></div>
   </div>
     
@@ -92,24 +92,33 @@
     $taken['start'] = $donation['Donation']['start_date'];
     $taken['end'] = $donation['Donation']['end_date'];
 	  $taken['color'] = '#F1760A';
-	  $taken['editable'] = false;
+    $taken['editable'] = false;
+    $taken['allDay'] = true;
     $array[] = $taken;
 
   }
 
   $events = json_encode( $array );
- // debug($array);
+  //debug($array);
 ?>
 
 <script type="text/javascript">
 $(document).ready(function() {
   var events = <?php echo $events; ?>;
-  console.log(events);
-    $('#calendar').fullCalendar({      
+    $('#calendar').fullCalendar({    
+      customButtons: {
+        myCustomButton: {
+          text: 'Reset',
+          click: function() {
+            location.reload();
+          }
+        }
+      },  
 	    header: {
-        left: 'prev,next today',
-        center: 'addEventButton',
-        right: 'month'
+        right: 'prev,next,month,today',
+        left: 'title',
+        titleFormat: 'MMM',
+        center:'myCustomButton'
       },
       // defaultDate: '2018-11-16',
       navLinks: true,
@@ -117,11 +126,12 @@ $(document).ready(function() {
       //eventLimit: true,
       selectable: true,
       events: <?php echo $events; ?>,
-      select: function (startDate, endDate) {
+      select: function(startDate, endDate, allDay, view) {
         var dateStart = moment(startDate);
         var dateEnd = moment(endDate);
+        //console.log(dateStart);
         if (dateStart.isValid() && dateEnd.isValid()) {
-          // console.log(dateStart.utc().format("MM/DD HH:mm") +" - "+dateEnd.utc().format("MM/DD HH:mm"));
+          //console.log(dateStart.utc().format("MM/DD HH:mm:ss") +" - "+dateEnd.utc().format("MM/DD HH:mm"));
           $('#calendar').fullCalendar('renderEvent', {
             title: 'My Choice',
             start: dateStart,
@@ -131,10 +141,29 @@ $(document).ready(function() {
          
         }
         $("#calendar").fullCalendar("unselect");
-        
-      }
-    });
+      },
+        selectAllow: function(selectInfo) {
+          var selected_start = selectInfo.start.startOf("day");
+          var selected_end = selectInfo.end.startOf("day");
+          var evts = $("#calendar").fullCalendar("clientEvents", function(evt) {
+              var st = evt.start.clone().startOf("day");
+            if (evt.end) {
+              var ed = evt.end.clone().startOf("day"); }
+            else { 
+              ed = st;
+           }
+            //return true if the event overlaps with the selection
+            return (selected_start.isBefore(ed) && selected_end.isAfter(st));
+         
+           } 
+           );
+          return evts.length == 0;
+        }
 
+       
+    });
+    var evts = $("#calendar").fullCalendar("clientEvents");
+          console.log(evts);
 
     $('form#donations').submit( function (e) {
       e.preventDefault();      
@@ -148,7 +177,7 @@ $(document).ready(function() {
       
 
       var calendarData = $('#calendar').fullCalendar('clientEvents');
-
+      console.log(calendarData);
       var selectedDays = false;
       for (var key in calendarData) {
 
@@ -175,34 +204,37 @@ $(document).ready(function() {
             'mobile': phone,
             'amount': amount,
             'start_date': startDate,
-            'end_date': endDate
+            'end_date': endDate,
+			'transaction_id': Math.floor(Math.random() * 100)
           };
+          console.log(data);
+		  var url = "<?php echo $this->webroot; ?>donations/save";
+		  var thanks = "<?php echo $this->webroot; ?>pages/thanks";
           
           // ajax call
           $.ajax({
             type: 'POST',
             //url: '/hopevillage/donations/save',
-            url:"<?php echo $this->webroot; ?>donations/save",
+            url:url,
             data: data,
             cache: false,
             dataType: 'JSON',
             beforeSend: function() {
               // $('#na').html('checking...')
+			 console.log(url);
             },
             success: function (html) {
               $('#loader').hide();
 
               // redirect to thank you page
-              window.location.replace('/hopevillage/pages/thanks');
+              window.location.replace(thanks);
+			  console.log(thanks);
             },
-            error: function (err) {
-              $('#loader').hide();
-
-              // alert('Error Occurred');
-              // console.log(err);
-
-              window.location.replace('/hopevillage/pages/thanks');
-            }
+            error: function(jqxhr,textStatus) {
+				   $('#loader').hide();
+                        console.log(jqxhr);
+						console.log(textStatus);
+                }
           });
         }
       }

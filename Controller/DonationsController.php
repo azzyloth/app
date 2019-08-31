@@ -4,51 +4,87 @@ App::uses('AppController', 'Controller');
 
 
 class DonationsController extends AppController {
+	public $components = array(
+		'Stripe.Stripe',
+		'Paginator'
+	);
+
 
 
 	public function beforeFilter() {
 		parent::beforeFilter();
  
-		$this->Auth->allow();
+		$this->Auth->allow('save','process');
 	}
-	public $components = array(
-		'Stripe.Stripe'
-	);
 
-	public function index() {
+	function index() {
 		// grab all donations
-
-		$this->set('donations', $this->Donation->find('all'));
-
-
+		$this->layout = 'admin';
+		$this->paginate = array(
+			'limit' => 5,
+			'order' => array(
+				'Donation.start_date' => 'asc'
+			)
+		);
+		$donations = $this->paginate('Donation');
+		$this->set(compact('donations'));
 	}
 
 	public function save(  ) {
 		// save donations
 
-		if ($this->request->is('post')) {
-            $this->Donation->create();
+		
+		
+		if( $this->request->is('ajax') ) {
+		   $this->Donation->create();
             if ($this->Donation->save($this->request->data)) {
                	// $this->Flash->success(__('Your post has been saved.'));
-				// return $this->redirect(array('action' => 'index'));
-				
+                echo json_encode(1);
+            }else {
+				echo json_encode(2);
+			}
 
-            }
-            // $this->Flash->error(__('Unable to add your post.'));
+		}else {
+			if ($this->request->is('post')) {
+				$this->Donation->create();
+				if ($this->Donation->save($this->request->data)) {
+					  echo $this->ModelName->getLastInsertID();
+				}
+
+			}
+		}
+		
+		exit;
+	}
+
+	function process( $id ){
+		if(!$id) {
+			// redirect to home
+			echo 'Redirect to home';
 		}
 
-		$data = array(
-			'amount' => '1.50',
-			'stripeToken' => 'tok_0NAEASV7h0m7ny',
-			'description' => 'Casi Robot - casi@robot.com'
-		);
-		
-		$result = $this->Stripe->charge($data);
-		debug($result);
-		exit;
+		$this->set('donation', $this->Donation->findById($id));
 
-		// for ajax calls
-		//$this->autoRender = false;
 		
+
+		if ($this->request->is('post')) {			
+			print_r( $this->request->data );
+			$data = array(
+				'amount' => $this->request->data['amount'],
+				'stripeToken' => $this->request->data['stripeToken'],
+				'description' => 'Hope Village Donation'
+			);
+			
+			$result = $this->Stripe->charge($data);
+
+			pr( $result );
+			exit;
+
+			// if result success update db status to pending
+		}
+
+		
+
+
 	}
 }
