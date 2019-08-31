@@ -208,8 +208,9 @@ $(document).ready(function() {
 			'transaction_id': Math.floor(Math.random() * 100)
           };
           console.log(data);
+          
 		  var url = "<?php echo $this->webroot; ?>donations/save";
-		  var thanks = "<?php echo $this->webroot; ?>pages/thanks";
+		  var process = "<?php echo $this->webroot; ?>donations/process";
           
           // ajax call
           $.ajax({
@@ -221,14 +222,14 @@ $(document).ready(function() {
             dataType: 'JSON',
             beforeSend: function() {
               // $('#na').html('checking...')
-			 console.log(url);
+			         console.log(url);
             },
-            success: function (html) {
+            success: function (response) {
               $('#loader').hide();
-
+                var process_url = process+'/'+response;
               // redirect to thank you page
-              window.location.replace(thanks);
-			  console.log(thanks);
+              window.location.replace(process_url);
+			        //console.log(response);
             },
             error: function(jqxhr,textStatus) {
 				   $('#loader').hide();

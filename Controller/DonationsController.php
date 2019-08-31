@@ -33,24 +33,22 @@ class DonationsController extends AppController {
 	public function save(  ) {
 		// save donations
 
-		
+		// if ($this->request->is('post')) {
+            // $this->Donation->create();
+            // if ($this->Donation->save($this->request->data)) {
+               	// // $this->Flash->success(__('Your post has been saved.'));
+                // // return $this->redirect(array('action' => 'index'));
+            // }
+            // // $this->Flash->error(__('Unable to add your post.'));
+		// }
 		
 		if( $this->request->is('ajax') ) {
 		   $this->Donation->create();
             if ($this->Donation->save($this->request->data)) {
                	// $this->Flash->success(__('Your post has been saved.'));
-                echo json_encode(1);
+                echo json_encode($this->Donation->getLastInsertID());
             }else {
-				echo json_encode(2);
-			}
-
-		}else {
-			if ($this->request->is('post')) {
-				$this->Donation->create();
-				if ($this->Donation->save($this->request->data)) {
-					  echo $this->ModelName->getLastInsertID();
-				}
-
+				echo json_encode('error');
 			}
 		}
 		
