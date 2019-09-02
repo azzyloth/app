@@ -94,4 +94,21 @@ class DonationsController extends AppController {
 
 
 	}
+
+	function thisMOnth(){
+		// grab all donations
+		$this->layout = 'admin';
+		$conditions = array(
+            'MONTH(Donation.start_date)' => date('n')
+        );
+		$this->paginate = array(
+			'conditions' => $conditions,
+			'limit' => 5,
+			'order' => array(
+				'Donation.start_date' => 'asc'
+			)
+		);
+		$donations = $this->paginate('Donation');
+		$this->set(compact('donations'));
+	}
 }
