@@ -30,7 +30,7 @@ class DonationsController extends AppController {
 		$this->set(compact('donations'));
 	}
 
-	public function save(  ) {
+	public function save() {
 		// save donations
 
 		// if ($this->request->is('post')) {
@@ -43,10 +43,10 @@ class DonationsController extends AppController {
 		// }
 		
 		if( $this->request->is('ajax') ) {
-		   $this->Donation->create();
+		   	$this->Donation->create();
             if ($this->Donation->save($this->request->data)) {
                	// $this->Flash->success(__('Your post has been saved.'));
-                echo json_encode($this->Donation->getLastInsertID());
+                echo $this->Donation->getLastInsertID();
             }else {
 				echo json_encode('error');
 			}
@@ -55,18 +55,20 @@ class DonationsController extends AppController {
 		exit;
 	}
 
-	function process( $id ){
-		if(!$id) {
-			// redirect to home
-			echo 'Redirect to home';
-		}
+	function process() {
+		// $this->Donation->id = $id;
+
+		pr( $this->request->data );
+        /*if (!$this->Donation->exists()) {
+            throw new NotFoundException(__('Invalid user'));
+        }
 
 		$this->set('donation', $this->Donation->findById($id));
 
 		
 
 		if ($this->request->is('post')) {			
-			print_r( $this->request->data );
+			//print_r( $this->request->data );
 			$data = array(
 				'amount' => $this->request->data['amount'],
 				'stripeToken' => $this->request->data['stripeToken'],
@@ -74,12 +76,19 @@ class DonationsController extends AppController {
 			);
 			
 			$result = $this->Stripe->charge($data);
-
-			pr( $result );
+			//if charge success
+			if(isset($result['stripe_id'])) {
+				//$this->Donation->id = $id;
+				$this->Donation->saveField('status', 'success');
+				
+				$this->redirect(array('controller' => 'pages', 'action' => 'thanks'));
+			}else {
+				echo "error";
+			}
 			exit;
 
 			// if result success update db status to pending
-		}
+		}*/
 
 		
 

@@ -44,6 +44,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   	<!--- Full Calender IO --->
   	<?= $this->Html->script('jquery-3.4.1.min.js') ?>
   	<?= $this->Html->script('jquery-ui.min.js') ?>
+	<?= $this->Html->script('jquery.redirect.js') ?>
   	<?= $this->Html->css('fullcalendar.min.css') ?>
 </head>
 <body>

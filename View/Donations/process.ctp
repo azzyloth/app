@@ -1,7 +1,7 @@
 <script src="https://js.stripe.com/v3/"></script>
 <?php 
 
-    pr($donation);
+    //pr($donation);
 
 ?>
 

@@ -115,10 +115,10 @@ $(document).ready(function() {
         }
       },  
 	    header: {
-        right: 'prev,next,month,today',
-        left: 'title',
+        left: 'prev,next,month,today',
+        center: 'title',
         titleFormat: 'MMM',
-        center:'myCustomButton'
+        right:'myCustomButton'
       },
       // defaultDate: '2018-11-16',
       navLinks: true,
@@ -162,8 +162,9 @@ $(document).ready(function() {
 
        
     });
+
     var evts = $("#calendar").fullCalendar("clientEvents");
-          console.log(evts);
+    console.log(evts);
 
     $('form#donations').submit( function (e) {
       e.preventDefault();      
@@ -172,13 +173,18 @@ $(document).ready(function() {
       var lastName = $('#defaultRegisterFormLastName').val();
       var email = $('#defaultRegisterFormEmail').val();
       var phone = $('#defaultRegisterFormPhone').val();
-      var addDonation = $('#defaultRegisterFormAdditionalDonation').val();
-
-      
+      var addDonation = $('#defaultRegisterFormAdditionalDonation').val();   
 
       var calendarData = $('#calendar').fullCalendar('clientEvents');
-      console.log(calendarData);
+      // console.log(calendarData);      
+
       var selectedDays = false;
+      var success = false;
+
+      var url = "<?php echo $this->webroot; ?>donations/save";
+		  var process = "<?php echo $this->webroot; ?>donations/process";
+      var ids = [];      
+
       for (var key in calendarData) {
 
         if( calendarData[key].title === 'My Choice') {
@@ -195,7 +201,7 @@ $(document).ready(function() {
             var amount = days*500+ parseInt(addDonation);
           } else {
             var amount = days*500;
-          }          
+          }
 
           var data = {
             'firstname': firstName,
@@ -205,13 +211,10 @@ $(document).ready(function() {
             'amount': amount,
             'start_date': startDate,
             'end_date': endDate,
-			'transaction_id': Math.floor(Math.random() * 100)
+            'transaction_id': Math.floor(Math.random() * 100)
           };
-          console.log(data);
-          
-		  var url = "<?php echo $this->webroot; ?>donations/save";
-		  var process = "<?php echo $this->webroot; ?>donations/process";
-          
+          // console.log(data);         
+		  
           // ajax call
           $.ajax({
             type: 'POST',
@@ -225,25 +228,57 @@ $(document).ready(function() {
 			         console.log(url);
             },
             success: function (response) {
-              $('#loader').hide();
-                var process_url = process+'/'+response;
-              // redirect to thank you page
-              window.location.replace(process_url);
-			        //console.log(response);
+              $('#loader').hide();   
+              success = true;
+
+              console.log('Response', response);
+              //save session
+              ids.push(response);
             },
             error: function(jqxhr,textStatus) {
-				   $('#loader').hide();
-                        console.log(jqxhr);
-						console.log(textStatus);
-                }
+              // error = true;
+              $('#loader').hide();
+              console.log(jqxhr);
+						  console.log(textStatus);
+            }
           });
         }
       }
-      
+
       if (!selectedDays) {
         alert('Please Select The Days On The Calendar.');
         return false;
       }
+
+      if( ids ) {
+        var processData;
+        var processDataString;
+
+        console.log('Ids', ids);
+
+        ids = ids.map(function(e){
+          console.log('E', e);
+          return JSON.stringify(e);
+        });
+
+        // console.log('Process Data', processData);
+
+        processDataString = ids.join(",");
+
+        console.log('ProcessDataString', processDataString);
+
+        // var process_url = process;
+        // redirect to step2
+
+
+        // $.redirect( process, processDataString, 'POST' );
+
+        // window.location.replace(process);
+			        
+        //return false;
+      }
+      
+      
     });	
   });
   </script>
