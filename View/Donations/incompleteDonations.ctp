@@ -3,9 +3,10 @@
 <?php if($donations): ?>
 <table class="table striped">
     <tr>
-        <th><?php echo $paginator->sort('start_date', 'Date'); ?></th>
+        <th><?php echo $paginator->sort('id', 'ID'); ?></th>
         <th><?php echo $paginator->sort('firstname', 'Firstname'); ?></th>
         <th><?php echo $paginator->sort('lastname', 'lastname'); ?></th>
+        <th><?php echo $paginator->sort('start_date', 'Date'); ?></th>
         <th><?php echo $paginator->sort('amount', 'Amount'); ?></th>
     </tr>
 
@@ -13,9 +14,10 @@
 
     <?php foreach ($donations as $donation): ?>
     <tr>
-        <td><?php echo date('Y-m-d',strtotime($donation['Donation']['start_date'])) ." - ". date('Y-m-d',strtotime($donation['Donation']['end_date'])); ?></td>
+        <td><?php echo $donation['Donation']['id']; ?></td>
         <td><?php echo $donation['Donation']['firstname']; ?></td>
         <td><?php echo $donation['Donation']['lastname']; ?></td>
+        <td><?php echo date('Y-m-d',strtotime($donation['Donation']['start_date'])) ." - ". date('Y-m-d',strtotime($donation['Donation']['end_date'])); ?></td>
         <td><?php echo $donation['Donation']['amount']; ?></td>
     </tr>
     <?php endforeach; ?>

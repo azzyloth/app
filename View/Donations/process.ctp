@@ -20,21 +20,18 @@
   <div class="col-md-12">
     <div class="tab-content">
       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
-        <h5>My Donation</h5>
+      <div style="max-width:500px; margin:0 auto;    padding: 20px; border: 1px solid #f1f1f1;">
+        <h5>Please fill in the information needed below</h5>
   
         <!-- Default form register -->
-        <form class="text-center border border-light"  method="POST" id="payment-form" action="/hopevillage/donations/process/<?= $donation['Donation']['id']; ?>">
 
-            <input type="hidden" name="id" class="form-control" value="<?= $donation['Donation']['id']; ?>" readonly />
-
-            <div class="form-row"><!-- First name -->
-                Name on Card:
+        <?php echo $this->Form->create('Donation', array('url' => 'process','id'=>'payment-form')); ?>
+            <div class="form-row">
                 <input type="text" name="name" id="defaultRegisterFormFirstName" class="form-control" placeholder="Name on Card" />
             </div>
-            <div id="card-element"></div>
+            <div id="card-element" style="margin-top: 20px;"></div>
 
-            <input type="hidden" name="amount" class="form-control" placeholder="Amount" readonly value="<?= $donation['Donation']['amount'];?>" />            
+            <input type="hidden" name="amount" class="form-control" placeholder="Amount" readonly value="<?= $amount ?>" />            
 
           <!-- Sign up button -->
           <button class="btn btn-info my-4 btn-block" type="submit">Proceed</button>
@@ -44,7 +41,7 @@
         </form>            
         <!-- Default form register -->
       </div> 
-      
+      </div>
     </div>
     
     </div>

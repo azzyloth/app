@@ -55,7 +55,12 @@ class PagesController extends AppController {
 		$path = func_get_args();
 
 		// grab all donations
-		$this->set('donations', $this->Donation->find('all'));	
+		$this->set('donations', $this->Donation->find('all',
+			array(
+				'conditions'=>array('Donation.status'=>'success')
+			)
+			)
+		);	
 
 		$count = count($path);
 		if (!$count) {

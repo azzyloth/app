@@ -30,47 +30,36 @@ class DonationsController extends AppController {
 		$this->set(compact('donations'));
 	}
 
-	public function save() {
-		// save donations
+	public function save() {		
+		
+		$this->Donation->create();
+		if($this->Donation->save($this->request->data)) {
+			$id = $this->Donation->getLastInsertID();
 
-		// if ($this->request->is('post')) {
-            // $this->Donation->create();
-            // if ($this->Donation->save($this->request->data)) {
-               	// // $this->Flash->success(__('Your post has been saved.'));
-                // // return $this->redirect(array('action' => 'index'));
-            // }
-            // // $this->Flash->error(__('Unable to add your post.'));
-		// }
-		
-		if( $this->request->is('ajax') ) {
-		   	$this->Donation->create();
-            if ($this->Donation->save($this->request->data)) {
-               	// $this->Flash->success(__('Your post has been saved.'));
-                echo $this->Donation->getLastInsertID();
-            }else {
-				echo json_encode('error');
-			}
+			echo json_encode( $id );
 		}
+
+		$this->autoRender = false;
 		
+		// $this->Flash->success(__('Your post has been saved.'));
 		exit;
 	}
 
 	function process() {
-		// $this->Donation->id = $id;
-
-		pr( $this->request->data );
-        /*if (!$this->Donation->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-
-		$this->set('donation', $this->Donation->findById($id));
-
 		
+		$amount = 0;
+		if( isset($this->request->data['ids']) && isset($this->request->data['total_amount'] )) {				
+			$amount = $this->request->data['total_amount'];
 
-		if ($this->request->is('post')) {			
-			//print_r( $this->request->data );
+			$this->Session->write('Donation.ids', $this->request->data['ids']);
+			$this->Session->write('Donation.amount', $amount);
+		}		
+
+		if ( !empty($this->request->data['stripeToken']) && !empty($this->Session->read('Donation.ids')) ) {
+			
+			//pr( $this->request->data );
 			$data = array(
-				'amount' => $this->request->data['amount'],
+				'amount' => $this->Session->read('Donation.amount'),
 				'stripeToken' => $this->request->data['stripeToken'],
 				'description' => 'Hope Village Donation'
 			);
@@ -79,20 +68,36 @@ class DonationsController extends AppController {
 			//if charge success
 			if(isset($result['stripe_id'])) {
 				//$this->Donation->id = $id;
-				$this->Donation->saveField('status', 'success');
+				// $this->Donation->saveField('status', 'success');
+
+				$ids = $this->Session->read('Donation.ids');
+				$this->Donation->updateAll(  
+					array('Donation.status' => "'success'"),
+					array('Donation.id' => $ids)
+				);
 				
 				$this->redirect(array('controller' => 'pages', 'action' => 'thanks'));
-			}else {
-				echo "error";
-			}
-			exit;
+			} else {
+				$ids = $this->Session->read('Donation.ids');
+				$this->Donation->updateAll(  
+					array('Donation.status' => "'failed'"),
+					array('Donation.id' => $ids)
+				);
+				
+				$id = $ids[0];
+				// $this->redirect(array('controller' => 'pages', 'action' => 'thanks'));
 
-			// if result success update db status to pending
-		}*/
+				// echo "error";
+				// pr($result);
 
-		
-
-
+				$this->Flash->error(
+					__('Something went wrong. Please, try again.')
+				);
+			}		
+			
+			// exit;
+		}	
+		$this->set(compact('amount'));	
 	}
 
 	function thisMOnth(){
@@ -103,7 +108,56 @@ class DonationsController extends AppController {
         );
 		$this->paginate = array(
 			'conditions' => $conditions,
-			'limit' => 5,
+			'limit' => 25,
+			'order' => array(
+				'Donation.start_date' => 'asc'
+			)
+		);
+		$donations = $this->paginate('Donation');
+		$this->set(compact('donations'));
+	}
+
+	function thisYear(){
+		// grab all donations
+		$this->layout = 'admin';
+		$conditions = array(
+            'Year(Donation.start_date)' => date('Y')
+        );
+		$this->paginate = array(
+			'conditions' => $conditions,
+			'limit' => 25,
+			'order' => array(
+				'Donation.start_date' => 'asc'
+			)
+		);
+		$donations = $this->paginate('Donation');
+		$this->set(compact('donations'));
+	}
+	function failedDonations(){
+		// grab all donations
+		$this->layout = 'admin';
+		$conditions = array(
+            'Donation.status' => 'failed'
+        );
+		$this->paginate = array(
+			'conditions' => $conditions,
+			'limit' => 25,
+			'order' => array(
+				'Donation.start_date' => 'asc'
+			)
+		);
+		$donations = $this->paginate('Donation');
+		$this->set(compact('donations'));
+	}
+	function incompleteDonations(){
+		// grab all donations
+		$this->layout = 'admin';
+		$conditions = array(
+            'Donation.status' => 'incomplete'
+        );
+		$this->paginate = array(
+			'conditions' => $conditions,
+			'limit' => 25,
 			'order' => array(
 				'Donation.start_date' => 'asc'
 			)

@@ -19,12 +19,12 @@
 </div>
 
 <div class="row" style="margin-top: 40px;">
-  <div class="col-md-8">
+  <div class="col-12 col-lg-8">
     <h5 style="margin:0 0 25px 0;">Please Select Your Day(s) of Hope</h5>
     <div id='calendar' style='width: 100%; margin: 0 auto;'></div>
   </div>
     
-  <div class="col-md-4">
+  <div class="col-12 col-lg-4">
     <div class="tab-content">
       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -80,7 +80,7 @@
 <?= $this->Html->script('fullcalendar.min.js') ?>
 
 <?php
-
+  // array for taken
   $array = [];
 
   $events = json_encode($array);
@@ -98,8 +98,7 @@
 
   }
 
-  $events = json_encode( $array );
-  //debug($array);
+  $events = json_encode( $array );  
 ?>
 
 <script type="text/javascript">
@@ -142,29 +141,31 @@ $(document).ready(function() {
         }
         $("#calendar").fullCalendar("unselect");
       },
-        selectAllow: function(selectInfo) {
-          var selected_start = selectInfo.start.startOf("day");
-          var selected_end = selectInfo.end.startOf("day");
-          var evts = $("#calendar").fullCalendar("clientEvents", function(evt) {
-              var st = evt.start.clone().startOf("day");
-            if (evt.end) {
-              var ed = evt.end.clone().startOf("day"); }
-            else { 
-              ed = st;
-           }
-            //return true if the event overlaps with the selection
-            return (selected_start.isBefore(ed) && selected_end.isAfter(st));
-         
-           } 
-           );
-          return evts.length == 0;
-        }
+      
+      selectAllow: function(selectInfo) {
+        var selected_start = selectInfo.start.startOf("day");
+        var selected_end = selectInfo.end.startOf("day");
+        var evts = 
+          $("#calendar").fullCalendar("clientEvents", function(evt) {
+            var st = evt.start.clone().startOf("day");
+          
+          if (evt.end) {
+            var ed = evt.end.clone().startOf("day");
+          } else { 
+            ed = st;
+          }
 
-       
+          //return true if the event overlaps with the selection
+          return (selected_start.isBefore(ed) && selected_end.isAfter(st));
+        
+        });
+
+        return evts.length == 0;
+      }
     });
 
     var evts = $("#calendar").fullCalendar("clientEvents");
-    console.log(evts);
+    // console.log(evts);
 
     $('form#donations').submit( function (e) {
       e.preventDefault();      
@@ -175,15 +176,15 @@ $(document).ready(function() {
       var phone = $('#defaultRegisterFormPhone').val();
       var addDonation = $('#defaultRegisterFormAdditionalDonation').val();   
 
-      var calendarData = $('#calendar').fullCalendar('clientEvents');
-      // console.log(calendarData);      
+      var calendarData = $('#calendar').fullCalendar('clientEvents');      
 
       var selectedDays = false;
       var success = false;
 
       var url = "<?php echo $this->webroot; ?>donations/save";
-		  var process = "<?php echo $this->webroot; ?>donations/process";
-      var ids = [];      
+      var process = "<?php echo $this->webroot; ?>donations/process";
+      var total_days = 0;
+      var ids = [];
 
       for (var key in calendarData) {
 
@@ -196,9 +197,10 @@ $(document).ready(function() {
           var endDate = calendarData[key].end.toJSON();
 
           var days = Math.ceil((calendarData[key].end.toDate() - calendarData[key].start.toDate()) / (1000 * 60 * 60 * 24));          
+          total_days += days;
           
           if (addDonation > 0 ) {
-            var amount = days*500+ parseInt(addDonation);
+            var amount = days*500+ days*parseInt(addDonation);
           } else {
             var amount = days*500;
           }
@@ -213,72 +215,61 @@ $(document).ready(function() {
             'end_date': endDate,
             'transaction_id': Math.floor(Math.random() * 100)
           };
-          // console.log(data);         
-		  
-          // ajax call
+
           $.ajax({
             type: 'POST',
             //url: '/hopevillage/donations/save',
             url:url,
+            async: false,
             data: data,
             cache: false,
             dataType: 'JSON',
             beforeSend: function() {
               // $('#na').html('checking...')
-			         console.log(url);
+                // console.log(url);
             },
             success: function (response) {
-              $('#loader').hide();   
+              $('#loader').hide();
               success = true;
 
-              console.log('Response', response);
-              //save session
               ids.push(response);
+
+              console.log('Response', response);
             },
-            error: function(jqxhr,textStatus) {
-              // error = true;
+            error: function(jqxhr, textStatus) {              
               $('#loader').hide();
-              console.log(jqxhr);
-						  console.log(textStatus);
+
+              success = true;
+              
+              console.log('JQXHR', jqxhr.responseText);
+              console.log(textStatus);
             }
-          });
+          });   
         }
       }
+
+      // console.log(JSON.stringify(data));
+      // ajax call
+      
 
       if (!selectedDays) {
         alert('Please Select The Days On The Calendar.');
         return false;
-      }
+      }     
 
-      if( ids ) {
-        var processData;
-        var processDataString;
-
-        console.log('Ids', ids);
-
-        ids = ids.map(function(e){
-          console.log('E', e);
-          return JSON.stringify(e);
-        });
-
-        // console.log('Process Data', processData);
-
-        processDataString = ids.join(",");
-
-        console.log('ProcessDataString', processDataString);
-
-        // var process_url = process;
+      if( success ) {        
         // redirect to step2
+        var total_amount = 0;
+        if (addDonation > 0 ) {
+            var total_amount = total_days*500+ total_days*parseInt(addDonation);
+          } else {
+            var total_amount = total_days*500;
+          }
+        $.redirect( process, { ids, total_amount } );
 
-
-        // $.redirect( process, processDataString, 'POST' );
-
-        // window.location.replace(process);
-			        
+        // window.location.replace( process );
         //return false;
-      }
-      
-      
+      }      
     });	
   });
   </script>

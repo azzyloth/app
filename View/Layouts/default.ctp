@@ -39,7 +39,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   	<?= $this->Html->css('bootstrap.min.css') ?>
   	<?= $this->Html->css('home.css') ?>     
 
-	<!--- <?= $this->Html->script('bootstrap.min.js') ?> --->
+	<?= $this->Html->script('bootstrap.min.js') ?>
 
   	<!--- Full Calender IO --->
   	<?= $this->Html->script('jquery-3.4.1.min.js') ?>
